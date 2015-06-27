@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:composition template="./../templete/homeTemplate.xhtml">
+
+        <ui:define name="content">
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-8">
+                    <c:choose>
+                        <c:when test="#{classCRUD.updateInfo.equalsIgnoreCase('class')}">
+                            <h:form>
+                                Class Id : #{classCRUD.classInfo.classId}
+                                Class Name : <h:inputText value="#{classCRUD.classInfo.className}"/>
+                                <h:commandButton value="Edit" action="#{classCRUD.update()}"></h:commandButton>
+                            </h:form>
+                        </c:when>
+                        <c:when test="#{classCRUD.updateInfo.equalsIgnoreCase('subject')}">
+                        <h:form>
+                            Class Id : #{subjectCRUD.subject.subId}
+                            Class Name : <h:inputText value="#{subjectCRUD.subject.subName}"/>
+                            <h:commandButton value="Edit" action="#{subjectCRUD.update()}"></h:commandButton>
+                            </h:form>
+                        
+                        </c:when>
+                        
+                        
+                           <c:when test="#{classCRUD.updateInfo.equalsIgnoreCase('chapter')}">
+                        <h:form>                              
+                                  
+                                    <h:outputLabel class="control-label col-sm-2">Chapter Name :</h:outputLabel>
+                                    <h:inputText value="#{subChapterCRUD.subChapter.schName}"/>
+                                    <h:outputLabel class="control-label col-sm-2">Chapter Title</h:outputLabel>
+                                    #{subChapterCRUD.subChapter.schTopics}"
+                                    <h:outputLabel class="control-label col-sm-2">Chapter Hints</h:outputLabel>
+                                    #{subChapterCRUD.subChapter.schHints}"<br/>
+                                    <h:commandButton value="Edit" action="#{subChapterCRUD.update()}" class="btn btn-primary btn-lg btn-block">
+                                        <f:setPropertyActionListener target="#{subChapterCRUD.subChapter.schId}" value="#{subChapterCRUD.subChapter.schId}"/>
+                                    </h:commandButton>
+                                                                       
+                            </h:form>                        
+                        </c:when>
+                    </c:choose>
+
+                </div>
+                
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+

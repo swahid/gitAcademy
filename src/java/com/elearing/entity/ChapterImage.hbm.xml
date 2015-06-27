@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2015 4:08:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.elearing.entity.ChapterImage" table="chapter_image" catalog="elearning" optimistic-lock="version">
+        <id name="chaImgId" type="java.lang.Integer">
+            <column name="chaimgid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="subChapter" class="com.elearing.entity.SubChapter" fetch="select">
+            <column name="schid" />
+        </many-to-one>
+        <property name="imageName" type="string">
+            <column name="imagename" length="45" />
+        </property>
+        <property name="imageUrl" type="string">
+            <column name="imageurl" length="200" />
+        </property>
+        <property name="imageType" type="string">
+            <column name="imagetype" length="45" />
+        </property>
+        <property name="imageSize" type="string">
+            <column name="imagesize" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

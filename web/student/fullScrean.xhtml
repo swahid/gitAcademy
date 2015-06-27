@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <title>Bootstrap Case</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <style>
+           html,body{height:100%;}
+.carousel,.item,.active{height:100%;}
+.carousel-inner{height:100%;}
+.fill{width:100%;height:100%;background-position:center;background-size:cover;}
+
+/* faster sliding speed */
+.carousel-inner > .item {
+    -webkit-transition: 0.3s ease-in-out left;
+    -moz-transition: 0.3s ease-in-out left;
+    -o-transition: 0.3s ease-in-out left;
+    transition: 0.3s ease-in-out left;
+}
+
+/* keep full widget on smaller screens */
+@media (max-width: 767px) { 
+	body {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+        </style>
+    </head>
+    <body>
+
+       <div class="container-full">
+      <div class="jumbotron text-center">
+        
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="student/allClass.xhtml">Learn <span class="sr-only">(current)</span></a></li>
+         
+        <li><a href="admin/aboutus.xhtml">About Us</a></li>  
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          
+                  <li><a href="user/login.xhtml">Login</a></li>
+          
+              
+             
+                   <li class="dropdown">
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+              <li><a href="#"></a></li>
+            <li><a href="#">Profile</a></li>
+          </ul>
+        </li>
+             
+         
+       
+       
+      </ul>
+    </div>
+
+      <div class="jumbotron text-center">
+        <h1>Full Width Layout</h1>
+        <p class="lead">The Bootstrap 3 grid is fluid only. This example shows how to use a custom container to create a fixed width layout.</p>
+        <p><a class="btn btn-large btn-success" href="http://bootply.com/tagged/bootstrap-3" target="ext">More Examples</a></p>
+      </div>
+
+  	  <div class="container">	
+      <div class="row">
+        <div class="col-lg-6">
+          <h4>Mobile First</h4>
+          <p>Responsive by default, and a clean "flat" design.</p>
+
+          <h4>Powerful Grid</h4>
+          <p>3 responsive grid sizes to control the grid layout on tiny, small and large displays.</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4>New Elements</h4>
+          <p>New panels, list groups, glyphicons and justified navigation.</p>
+
+          <h4>Less Bloat</h4>
+          <p>The optimized CSS is in a single file. Glyphicons are now separate.</p>
+        </div>
+      </div>
+      </div>
+  
+  	  <hr/>
+  
+  	  <div class="jumbotron text-center">
+        <h1>Moving from Bootstrap 2.x to 3.0</h1>
+        <p class="lead">Everything has changed, so you can't just replace the 2.x with the 3.0 files. The folks at Bootply, the Bootstrap Playground have created a migration guide to help.</p>
+        <p><a class="btn btn-large btn-success" href="http://www.bootply.com/bootstrap-3-migration-guide" target="ext">Migration Guide</a></p>
+      </div>
+           <div class="jumbotron text-center">
+        Footer
+      </div>
+
+</div>
+        
+<div class="container fill">
+<div id="myCarousel" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="active item">
+      <div class="fill" style="background-image:url('//placehold.it/1024x700/449955/FFF');">
+        <div class="container">
+          gfjfgkh
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="fill" style="background-image:url('//placehold.it/1024x700');">
+        <div class="container">
+          fghdgk
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="fill" style="background-image:url('//placehold.it/1024x700/CC1111/FFF');">
+        <div class="container">
+          ghjghl
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pull-center">
+	<a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>
+	<a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>
+  </div>
+</div>
+</div>
+
+    </body>
+</html>
+

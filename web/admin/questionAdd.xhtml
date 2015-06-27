@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:composition template="./../templete/homeTemplate.xhtml">
+
+        <ui:define name="content">
+            <div class="col-md-3">
+
+            </div>
+            <c:choose>
+                <c:when test="#{subjectCRUD.quesAdd.equalsIgnoreCase('multipule')}">
+                    <h:form>
+                        <h:panelGrid columns="2">
+                              <p:outputLabel  value="Chapter Type" />
+                                    <h:selectOneMenu value="#{multiChoiceQuesCRUD.chapterType.chTyId}" style="width:125px">
+
+                                        <f:selectItems value="#{chapterTypeCRUD.chapterTypeData}"  />
+
+                                    </h:selectOneMenu> 
+                        
+                               <h:outputLabel>Select Level </h:outputLabel>
+
+                                    <h:selectOneRadio id="console" value="#{multiChoiceQuesCRUD.quesLevel.quesLevelId}" >
+
+                                        <f:selectItem itemLabel="জ্ঞান" itemValue="1"  />
+                                        <f:selectItem itemLabel="আনুধাবন" itemValue="2" />
+                                        <f:selectItem itemLabel="প্রয়োগ" itemValue="3" />
+                                        <f:selectItem itemLabel="উচ্চতর" itemValue="4" />
+                                 </h:selectOneRadio>
+                           
+                                <h:outputLabel>MCQ Type </h:outputLabel>
+
+                                <h:selectOneRadio id="con" value="#{multiChoiceQuesCRUD.mcqQues.mcqType}" >
+
+                                        <f:selectItem itemLabel="Single Choose" itemValue="1"  />
+                                        <f:selectItem itemLabel="Multi Choose" itemValue="2" />
+
+                                    </h:selectOneRadio>
+                            Question Title        <h:inputText value="#{multiChoiceQuesCRUD.mcqQues.mcqTitle}" ></h:inputText>
+                            Option A        <h:inputText value="#{multiChoiceQuesCRUD.mcqQues.op1}" ></h:inputText>
+                            Option B       <h:inputText value="#{multiChoiceQuesCRUD.mcqQues.op2}" ></h:inputText>
+                            Option C        <h:inputText value="#{multiChoiceQuesCRUD.mcqQues.op3}" ></h:inputText>
+                            Option D        <h:inputText value="#{multiChoiceQuesCRUD.mcqQues.op4}" ></h:inputText>
+                            Answer        <h:inputText value="#{multiChoiceQuesCRUD.mcqQues.ansOp}" ></h:inputText>
+                           
+
+
+                            <h:commandButton value="Add" action="#{multiChoiceQuesCRUD.addMultipule()}">
+                            
+                                <f:setPropertyActionListener target="#{multiChoiceQuesCRUD.mcqQues.user}" value="#{userLogin.user.userName}"/>
+                                
+                            </h:commandButton>
+                        </h:panelGrid> 
+
+                    </h:form>
+                    <div class="col-md-9">
+                        <ui:repeat value="#{multiChoiceQuesCRUD.allMcqList}" var="mul" varStatus="sl">
+
+                            <p>  #{sl.index+1} .  #{mul.mcqTitle}</p>
+
+                            <h:form>
+                                <h:commandButton value="Delete" action="#{multiChoiceQuesCRUD.deleteMultipule()}">
+
+
+                                    <f:setPropertyActionListener target="#{multiChoiceQuesCRUD.mcqQues.mcqId}" value="#{mul.mcqId}"/>
+
+                                </h:commandButton>
+
+                            </h:form>
+                            <table class="table">
+
+                                <td>a . #{mul.op1}</td>
+                                <td>b . #{mul.op2}</td>
+                                <td>c . #{mul.op3}</td>
+                                <td>d . #{mul.op4}</td>
+                                <td>Ans. #{mul.ansOp}</td>    
+                            </table>
+
+                        </ui:repeat>
+                    </div>  
+                </c:when>
+                <c:when test="#{subjectCRUD.quesAdd.equalsIgnoreCase('descreptive')}">
+                    <h:form enctype="multipart/form-data">
+                   <p:outputLabel value="Select An Image"/>
+                        <p:fileUpload value="#{chapterImageSlide.file}" mode="simple"/>
+                        <h:graphicImage value="resources/image/userImage/#{chapterImageSlide.imageName}" width="100" height="100" /><br/>   
+                        <h:panelGrid columns="2">
+                            <p:outputLabel value="Question Heading"/>
+                            <p:editor id="editor" widgetVar="editorWidget" value="#{chapterImageSlide.descQues.descQuTitle}" width="600" height="100" />
+
+
+                            <p:outputLabel value="First Question"/>
+                            <p:inputTextarea  value="#{chapterImageSlide.descQues.firstQuestion}" rows="2" cols="77" />
+
+
+                            <p:outputLabel value="Second Question"/>
+                            <p:inputTextarea  value="#{chapterImageSlide.descQues.secondQuestion}" rows="2" cols="77" />
+
+
+                            <p:outputLabel value="Third Question"/>
+                            <p:inputTextarea  value="#{chapterImageSlide.descQues.thirdQuestion}" rows="2" cols="77" />
+
+
+                            <p:outputLabel value="Fourth Question"/>
+                            <p:inputTextarea  value="#{chapterImageSlide.descQues.fourthQuestion}" rows="2" cols="77" />
+
+
+                        </h:panelGrid>
+
+
+                        <p:commandButton value="Submit" ajax="false" action="#{chapterImageSlide.saveDescripTive()}" />
+                    </h:form>  
+
+                </c:when>
+                <c:when test="#{subjectCRUD.quesAdd.equalsIgnoreCase('slide')}">
+
+                    <h:form enctype="multipart/form-data">               
+                        <h:graphicImage value="resources/image/userImage/#{chapterImageSlide.imageName}" width="100" height="100" />
+                        <p:fileUpload value="#{chapterImageSlide.file}" mode="simple"/>
+                        <h:commandButton value="Submit" action="#{chapterImageSlide.saveChapImg()}" />
+                    </h:form>
+
+                </c:when>
+            </c:choose>
+
+        </ui:define>
+    </ui:composition>
+</html>
+

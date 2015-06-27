@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2015 4:08:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.elearing.entity.QuesLevel" table="ques_level" catalog="elearning" optimistic-lock="version">
+        <id name="quesLevelId" type="java.lang.Integer">
+            <column name="queslevelid" />
+            <generator class="identity" />
+        </id>
+        <property name="quesLevelName" type="string">
+            <column name="queslevelname" length="45" not-null="true" />
+        </property>
+        <set name="examQuesLinks" table="examqueslink" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="queslevelid" />
+            </key>
+            <one-to-many class="com.elearing.entity.ExamQuesLink" />
+        </set>
+        <set name="mcqQueses" table="mcqques" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="queslevelid" />
+            </key>
+            <one-to-many class="com.elearing.entity.McqQues" />
+        </set>
+    </class>
+</hibernate-mapping>

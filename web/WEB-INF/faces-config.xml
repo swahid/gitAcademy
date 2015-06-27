@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <navigation-rule>
+        <from-view-id>/*</from-view-id>
+        
+        <navigation-case>
+            <from-outcome>admin</from-outcome>
+            <to-view-id>/admin/admin.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+          <navigation-case>
+            <from-outcome>student</from-outcome>
+            <to-view-id>/student/student.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>aboutus</from-outcome>
+            <to-view-id>/admin/aboutus.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>conSubject</from-outcome>
+            <to-view-id>/admin/conSubject.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        
+        
+        <navigation-case>
+            <from-outcome>conChapter</from-outcome>
+            <to-view-id>/admin/conChapter.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+    
+        
+        <navigation-case>
+            <from-outcome>questionAdd</from-outcome>
+            <to-view-id>/admin/questionAdd.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>update</from-outcome>
+            <to-view-id>/admin/update.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        
+        
+        
+        
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        
+        
+        
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        
+         <navigation-case>
+            <from-outcome>logincoment</from-outcome>
+            <to-view-id>/user/logincoment.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+     
+            <navigation-case>
+            <from-outcome>seven</from-outcome>
+            <to-view-id>/student/seven.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        
+         <navigation-case>
+            <from-outcome>five</from-outcome>
+            <to-view-id>/student/five.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        
+         <navigation-case>
+            <from-outcome>examOnSubject</from-outcome>
+            <to-view-id>/student/examOnSubject.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>allClass</from-outcome>
+            <to-view-id>/student/allClass.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>exResult</from-outcome>
+            <to-view-id>/student/exResult.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        
+        
+        <navigation-case>
+            <from-outcome>readMcq</from-outcome>
+            <to-view-id>/student/readMcq.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        
+
+        <navigation-case>
+            <from-outcome>chapterSlide</from-outcome>
+            <to-view-id>/student/chapterSlide.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        
+
+          <navigation-case>
+            <from-outcome>descriptive</from-outcome>
+            <to-view-id>/student/descriptive.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        
+        
+         <navigation-case>
+            <from-outcome>comments</from-outcome>
+            <to-view-id>/student/comments.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>chapterExam</from-outcome>
+            <to-view-id>/student/chapterExam.xhtml</to-view-id>
+            <redirect></redirect>
+        </navigation-case>
+        
+        
+    </navigation-rule>
+</faces-config>

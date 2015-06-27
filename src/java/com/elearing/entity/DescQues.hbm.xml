@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2015 4:08:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.elearing.entity.DescQues" table="desc_ques" catalog="elearning" optimistic-lock="version">
+        <id name="descQuesId" type="java.lang.Integer">
+            <column name="descquesid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="subChapter" class="com.elearing.entity.SubChapter" fetch="select">
+            <column name="schid" />
+        </many-to-one>
+        <property name="descQuTitle" type="string">
+            <column name="descqutitle" length="700" />
+        </property>
+        <property name="firstQuestion" type="string">
+            <column name="firstquestion" length="2000" />
+        </property>
+        <property name="firstAnswer" type="string">
+            <column name="firstanswer" length="700" />
+        </property>
+        <property name="secondQuestion" type="string">
+            <column name="secondquestion" length="700" />
+        </property>
+        <property name="secondAnswer" type="string">
+            <column name="secondanswer" length="700" />
+        </property>
+        <property name="thirdQuestion" type="string">
+            <column name="thirdquestion" length="700" />
+        </property>
+        <property name="thirdAnswer" type="string">
+            <column name="thirdanswer" length="700" />
+        </property>
+        <property name="fourthQuestion" type="string">
+            <column name="fourthquestion" length="700" />
+        </property>
+        <property name="fourthAnswer" type="string">
+            <column name="fourthanswer" length="700" />
+        </property>
+        <property name="descQuPubTime" type="timestamp">
+            <column name="descqupubtime" length="19" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" length="45" />
+        </property>
+        <set name="descQuesMetas" table="descquesmeta" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="descquid" />
+            </key>
+            <one-to-many class="com.elearing.entity.DescQuesMeta" />
+        </set>
+    </class>
+</hibernate-mapping>

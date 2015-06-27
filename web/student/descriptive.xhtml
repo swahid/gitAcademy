@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:composition template="./../templete/homeTemplate.xhtml">
+
+        <ui:define name="content">
+            <div class="row">
+
+                <div class="col-md-2">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <center> বাংলা  </center>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <h:form>
+                                        <h:commandButton value="এই দেশ এই মানুষ"  class="btn btn-default btn-xs  btn-block">
+                                            <f:setPropertyActionListener target="#{multiChoiceQuesCRUD.subChapter.schId}" value="21" class="btn btn-default btn-xs  btn-block"/> 
+                                        </h:commandButton> 
+                                        <h:commandButton value="সুন্দর বনের প্রাণী" class="btn btn-default btn-xs  btn-block" >
+                                            <f:setPropertyActionListener target="#{multiChoiceQuesCRUD.subChapter.schId}" value="22" class="btn btn-default btn-xs  btn-block"/> 
+                                        </h:commandButton>   
+                                        <h:commandButton value="হাতি আর শিয়ালের গল্প" class="btn btn-default btn-xs  btn-block"/> 
+                                        <h:commandButton value="বীরের রক্তে প্রতিষ্ঠিত দেশ" class="btn btn-default btn-xs  btn-block"/>
+                                        <h:commandButton value="শখের মৃত শিল্প" class="btn btn-default btn-xs  btn-block"/> 
+                                        <h:commandButton value="অবাক বাংলাদেশ" class="btn btn-default btn-xs  btn-block"/> 
+                                    </h:form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+
+                    <h:form>
+                
+                    <ui:repeat value="#{descriptiveCRUD.descriptive}" var="ds">
+                        <h3>নিচের অনুচ্ছেদটি পড়ে ক, খ, গ এবং ঘ ক্রমিক প্রশ্নের উত্তর লিখ:</h3>
+                        <h:outputLabel value="#{ds.descQuTitle}"/>    
+                     
+                      <c:choose>
+                          <c:when test="#{ds.image !=null}">
+                           <h:graphicImage value="resources/image/userImage/#{ds.image}" style="width: 150px; height: 70px;" /><br/>                      
+                          </c:when>
+                      </c:choose>
+                        
+                        <h:outputLabel value="ক)	#{ds.firstQuestion}"/><br/>
+                        <h:outputLabel value="খ)	#{ds.secondQuestion}"/><br/>
+                        <h:outputLabel value="গ)	#{ds.thirdQuestion}"/><br/>
+                        <h:outputLabel value="ঘ)	#{ds.fourthQuestion}"/><br/>                                                       
+                        <h:commandButton value="Read More"  class="btn btn-primary btn-xs  btn-block" action="#{commentsOnDesc.descComent()}">                           
+                               <f:setPropertyActionListener target="#{commentsOnDesc.descQues.descQuesId}" value="#{ds.descQuesId}"/>                          
+                       </h:commandButton>                  
+                        <p:outputLabel value="=============================="/><br/>                        
+                    </ui:repeat>
+       
+            </h:form>             
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+

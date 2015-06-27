@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:composition template="./../templete/homeTemplate.xhtml">
+
+        <ui:define name="content">
+            <div class="col-md-3">
+                
+                <h:form>
+                    <h:commandButton value="Profile" action="#{student.redirectTo()}" class="btn btn-primary btn-lg btn-block" >
+                        <f:setPropertyActionListener target="#{student.className}" value="profile" />
+                        <f:setPropertyActionListener target="#{student.subName}" value="profile" />
+                    </h:commandButton>
+                    <h:commandButton value="Settings" action="#{student.redirectTo()}" class="btn btn-primary btn-lg btn-block" >
+                        <f:setPropertyActionListener target="#{student.className}" value="Settings" />
+                        <f:setPropertyActionListener target="#{student.subName}" value="Settings" />
+                    </h:commandButton>
+                    
+                </h:form>
+
+
+            </div>
+
+            <div class="col-md-9">
+                 <c:choose>
+                    
+                     <!--codding adding for dashboard-->
+                <c:when test="#{student.className.equalsIgnoreCase('dashboard')}">
+                
+                <!--Dashboard here for admin-->
+                under construct student dashbord
+                </c:when>
+
+                      <!--codding adding for Profile tab-->
+                <c:when test="#{student.className.equalsIgnoreCase('profile')}">
+                <h:outputLabel value="Profile Information" class="form-control"/>
+                    <h:panelGrid columns="2" cellpadding="15">
+                        <h:outputLabel value="First Name :" class="form-control"/>
+                        <h:outputLabel value="#{userLogin.user.firstName}" class="form-control"/>
+
+                        <h:outputLabel value="Last Name :" class="form-control"/>
+                        <h:outputLabel value="#{userLogin.user.lastName}" class="form-control"/>
+
+                        <h:outputLabel value="Phone No. :" class="form-control"/>
+                        <h:outputLabel value="#{userLogin.user.userPhone}" class="form-control"/>
+
+                        <h:outputLabel value="Email :" class="form-control"/>
+                        <h:outputLabel value="#{userLogin.user.userEmail}" class="form-control"/>
+
+                        <h:outputLabel value="UserName :" class="form-control"/>
+                        <h:outputLabel value="#{userLogin.user.userName}" class="form-control"/>
+
+                        <h:outputLabel value="Member type : " class="form-control"/>
+                        <h:outputLabel value="#{userLogin.user.userRole.roleName}" class="form-control" />
+
+                        <h:outputLabel value="Member Since :" class="form-control"/>
+                        <h:outputLabel value="#{userLogin.user.date}" class="form-control"/>
+                    </h:panelGrid>
+                    
+                
+                </c:when>
+                      
+                      <!--//coding for account settings-->
+                      <c:when test="#{student.className.equalsIgnoreCase('Settings')}">
+                
+                        <h:form id="Profile">
+                        <h:outputLabel value="Personal Setings" class="form-control"/>
+                        <h:messages id="out" showSummary="true"/>
+                        <h:panelGrid columns="2" cellpadding="5">
+
+                            <h:outputLabel value="First Name : &nbsp;&nbsp;" class="form-control"/>
+                            <h:inputText value="#{userLogin.user.firstName}" class="form-control"/>
+                            <h:outputLabel value="Last Name : &nbsp;&nbsp;" class="form-control"/>
+                            <h:inputText value="#{userLogin.user.lastName}" class="form-control" />
+                            <h:outputLabel value="Email : &nbsp;&nbsp;" class="form-control"/>
+                            <h:inputText value="#{userLogin.user.userEmail}" class="form-control"/>
+                            <h:outputLabel value="Cell Phone : &nbsp;&nbsp;" class="form-control"/>
+                            <h:inputText value="#{userLogin.user.userPhone}" class="form-control"/>
+
+                        </h:panelGrid>
+                        <hr/>
+                        <h:outputLabel value="Institution Information" class="form-control"/>
+                        <h:panelGrid columns="2" cellpadding="" >
+
+                            <h:outputLabel value="Institution Name :" class="form-control"/>
+                            <h:inputText value="#{userLogin.institutionInfo.insName}" class="form-control" />
+                            <h:outputLabel value="Class/ Department: " class="form-control"/>
+                            <h:inputText value="#{userLogin.institutionInfo.insType}" class="form-control"/>
+                            <h:outputLabel value="Institution Location : "/>
+                            <h:inputText value="#{userLogin.institutionInfo.insAddress}" class="form-control"/>
+                            <h:outputLabel value="Dristrict : "/>
+                            <h:inputText value="#{userLogin.institutionInfo.insDistrict}" class="form-control"/>
+                            &nbsp;
+                            <h:commandButton value="Update" action="#{userLogin.profileUpdate()}" class="btn btn-primary btn-lg btn-block" />
+
+
+                        </h:panelGrid>
+                        </h:form>
+
+                    
+                </c:when>
+                      
+                      
+                    <c:otherwise >               
+                        <p>Yet no data is reserved........................</p> 
+                    </c:otherwise>
+                </c:choose>
+            </div>
+
+        </ui:define>
+    </ui:composition>
+</html>
+

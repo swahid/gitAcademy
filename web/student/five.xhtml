@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:composition template="./../templete/homeTemplate.xhtml">
+
+        <ui:define name="content">
+            <div class="col-md-3">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <center> বাংলা  </center>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <h:form>
+                                    <h:commandButton value="এই দেশ এই মানুষ" action="#{subChapterCRUD.chap()}" class="btn btn-primary btn-xs  btn-block">
+                                        <f:setPropertyActionListener target="#{subChapterCRUD.subChapter.schId}" value="1" >                            
+                                        </f:setPropertyActionListener>                            
+                                    </h:commandButton> 
+                                    <h:commandButton value="সুন্দর বনের প্রাণী" action="#{subChapterCRUD.chap()}" class="btn btn-primary btn-xs  btn-block">
+                                        <f:setPropertyActionListener target="#{subChapterCRUD.subChapter.schId}" value="2" >                            
+                                        </f:setPropertyActionListener>
+                                    </h:commandButton>   
+                                    <h:commandButton value="হাতি আর শিয়ালের গল্প" class="btn btn-primary btn-xs  btn-block" /> 
+                                    <h:commandButton value="বীরের রক্তে প্রতিষ্ঠিত দেশ" class="btn btn-primary btn-xs  btn-block"/>
+                                    <h:commandButton value="শখের মৃত শিল্প" class="btn btn-primary btn-xs  btn-block"/> 
+                                    <h:commandButton value="অবাক বাংলাদেশ" class="btn btn-primary btn-xs  btn-block"/> 
+                                </h:form>    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <center>আনন্দ পাঠ </center>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <button type="button" class="btn btn-primary btn-xs  btn-block"> তোঁতা কাহিনী  </button> 
+                                <button type="button" class="btn btn-primary btn-xs  btn-block"> লালু</button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block"> গুরু চণ্ডালী </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">বুলু</button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">মানুষের মন </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">আদু ভাই</button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block"> অলুখুনে জুতো  </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">উনিশ শ একাত্তুর </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">বিচার নেই </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">চরু </button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <center> গণিত  </center>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">মূলদ ও অমূলদ সংখ্যা </button> 
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">সমানুপাত ও লাভ-ক্ষতি </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">পরিমাণ </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">বীজগণিতীয় রাশির গুণ ও ভাগ</button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">বীজগণিতীয় সূত্রাবলি ও প্রয়োগ </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">বীজগণিতীয় ভগ্নাংশ </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">সরল সমীকরণ </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">সমান্তরাল সরলরেখা </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">ত্রিভুজ</button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">সর্বসমতা ও সদৃশতা </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">তথ্য ও উপাত্ত </button>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFour">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <center>বিজ্ঞান </center>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                            <div class="panel-body">
+
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">নিম্ন শ্রেণির জীব </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">উদ্ভিদ ও প্রাণীর কোষীয় সংগঠন  </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">উদ্ভিদের বাহ্যিক বয়সিস্থ </button>
+                                <button type="button" class="btn btn-primary btn-xs btn-block"> শ্বসন</button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block"></button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block"> </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block"> </button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block"></button>
+                                <button type="button" class="btn btn-primary btn-xs  btn-block"> </button>
+
+                                <button type="button" class="btn btn-primary btn-xs  btn-block">Block level button</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse" id="collapseExample">
+                    <div class="well">
+                        <p>Where are you</p>
+
+
+
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+            <div class="col-md-9">
+                <c:choose>
+                    <c:when test="#{subChapterCRUD.subChapter.schId ==null}">
+                        <h2>   <center><h:outputLabel value="There will go some Slide On this Subject"/></center> </h2>
+                        <!--                        <h:form>
+                                                    <h:commandButton value="Question Patarn"  class="btn btn-primary btn-lg btn-block">
+                                                     </h:commandButton>
+                                                </h:form>-->
+                    </c:when>
+                    
+                    <c:when test="#{subChapterCRUD.subChapter.subPaper ==null}">
+                        <h:form>
+
+                            <center>      <h1> <h:outputLabel value="#{subChapterCRUD.subChapter.schName}"/></h1></center>
+                            <big><h:outputLabel value="আলোচ্য বিষয়ঃ "/></big>
+                            <h:outputLabel value="#{subChapterCRUD.subChapter.schTopics}"/><br/><br/>
+                            <big><h:outputLabel value="গুরুত্ব পূর্ণ তথ্যঃ "/></big>
+                            <h:outputLabel value="#{subChapterCRUD.subChapter.schHints}"/><br/>
+                            <table class="table">
+
+                              
+                                <tr>
+                                    <td >
+                                        <h:commandButton value="সৃজনশীল " action="descriptive" class="btn btn-primary btn-lg btn-block">
+                                            <f:setPropertyActionListener target="#{descriptiveCRUD.subChapter.schId}" value="8" />
+                                        </h:commandButton>
+                                    </td>
+                                </tr>
+                                    <tr>
+                                    <td>
+
+                                        <h:commandButton value="বহুনির্বাচনী  " action="readMcq" class="btn btn-primary btn-lg btn-block">
+                                            <f:setPropertyActionListener target="#{multiChoiceQuesCRUD.subChapter.schId}" value="1" />
+
+                                        </h:commandButton>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <!--                                    <td >
+                                    
+                                                                            <h:commandButton value="Merti Test" action="examOnSubject" class="btn btn-primary btn-lg btn-block" >
+                                                                                <f:setPropertyActionListener target="{examController.subject.subId}" value="9" />
+                                                                            </h:commandButton>
+                                    
+                                                                        </td>-->
+
+
+                                    <td >
+
+                                        <h:commandButton value="পরীক্ষা" action="chapterExam" class="btn btn-primary btn-lg btn-block" >
+                                            <f:setPropertyActionListener target="#{examController.subChapter.schId}" value="1" />
+                                        </h:commandButton>
+
+                                    </td>
+                                </tr>
+                              <tr>
+                                    <td >
+
+                                        <h:commandButton action="chapterSlide" value="অর্ধ বাস্তব চিত্র" class="btn btn-primary btn-lg btn-block">
+                                            <f:setPropertyActionListener target="#{chapterImageSlide.subChapter.schId}" value="1" />
+                                        </h:commandButton>
+                                    </td>
+                                </tr>
+
+
+                            </table>
+                        </h:form>
+                    </c:when>
+                    
+                    <c:otherwise >               
+                        <p>Yet no data is reserved........................</p> 
+                    </c:otherwise>
+                </c:choose>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+

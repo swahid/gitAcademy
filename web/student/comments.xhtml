@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:composition template="./../templete/homeTemplate.xhtml">
+
+        <ui:define name="content">
+            <div class="row">
+
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8">
+
+                    <h:form>
+                        <h:panelGrid  columns="1">
+
+                            <h3>নিচের অনুচ্ছেদটি পড়ে ক, খ, গ এবং ঘ ক্রমিক প্রশ্নের উত্তর লিখ:</h3>
+
+                            <h:outputLabel value="#{commentsOnDesc.descQues.descQuTitle}"/><br/> 
+                            <h:outputLabel value="ক)	#{commentsOnDesc.descQues.firstQuestion}"/><br/>
+                            <h:outputLabel value="খ)	#{commentsOnDesc.descQues.secondQuestion}"/><br/>
+                            <h:outputLabel value="গ)	#{commentsOnDesc.descQues.thirdQuestion}"/><br/>
+                            <h:outputLabel value="ঘ)	#{commentsOnDesc.descQues.fourthQuestion}"/><br/>                      
+
+                        </h:panelGrid>          
+                    </h:form>   
+        
+                    <c:choose>
+                        <c:when  test="#{!userLogin.isLogin}" >
+                            <h:form>
+                                <h:commandButton value="Comments here first login" action="logincoment"/>
+                            </h:form>
+                        </c:when>
+
+                        <c:otherwise>
+                            <h:form>
+                                <h:panelGrid columns="1">
+
+                                    <h:outputLabel value=" ================= Make Your Comments ========== "/>
+
+                                    <h:outputLabel value="Name : #{loginBean.user.userName}" >
+
+                                    </h:outputLabel>
+                                    <h:outputLabel value="Comments : " />
+                                    <h:inputTextarea value="#{commentsBean.descQuesMeta.descQuCmnt}" cols="50" rows="10"/>
+                                    <h:commandButton value="Submit" action="#{commentsBean.insertComment()}">
+                                        <f:setPropertyActionListener target="#{commentsBean.descQues.descQuesId}" value="#{desQ.descQues.descQuesId}"/>
+                                        <f:setPropertyActionListener target="#{commentsBean.descQuesMeta.userId}" value="#{loginBean.user.userName}"/>
+                                    </h:commandButton>
+                                </h:panelGrid>
+                            </h:form>
+                        </c:otherwise>
+                    </c:choose>
+                    <h:form>
+                        <h:panelGrid columns="1" >
+                            <ui:repeat value="#{commentsOnDesc.allComents}" var="s" >
+                                <h:panelGrid columns="1">
+                                    <h:outputLabel value="======================================================" />
+                                    <h:outputLabel value="Name : #{s.userId}" />
+                                    <h:outputLabel value="Published Time : #{s.cmntTime}" />
+                                    <h:outputLabel value="Comments : #{s.descQuCmnt}" />
+                                    <h:outputLabel value="======================================================" />
+                                </h:panelGrid>
+                            </ui:repeat>
+                        </h:panelGrid>
+                    </h:form>            
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+

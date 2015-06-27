@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2015 4:08:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.elearing.entity.DescQuesMeta" table="desc_que_smeta" catalog="elearning" optimistic-lock="version">
+        <id name="descMetaId" type="java.lang.Integer">
+            <column name="descmetaid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="descQues" class="com.elearing.entity.DescQues" fetch="select">
+            <column name="descquid" />
+        </many-to-one>
+        <property name="descQuCmnt" type="string">
+            <column name="descqucmnt" length="600" />
+        </property>
+        <property name="userId" type="string">
+            <column name="userid" length="45" />
+        </property>
+        <property name="cmntTime" type="timestamp">
+            <column name="cmnttime" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

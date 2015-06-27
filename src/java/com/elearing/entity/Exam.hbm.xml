@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2015 4:08:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.elearing.entity.Exam" table="exam" catalog="elearning" optimistic-lock="version">
+        <id name="examId" type="java.lang.Integer">
+            <column name="examid" />
+            <generator class="identity" />
+        </id>
+        <property name="totalQues" type="java.lang.Integer">
+            <column name="totalques" />
+        </property>
+        <property name="examName" type="string">
+            <column name="examname" length="45" />
+        </property>
+        <property name="examTime" type="java.lang.Integer">
+            <column name="examtime" />
+        </property>
+        <property name="examStatus" type="string">
+            <column name="examstatus" length="45" />
+        </property>
+        <property name="passMarks" type="java.lang.Integer">
+            <column name="passmarks" />
+        </property>
+        <set name="examQuesLinks" table="examqueslink" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="examid" />
+            </key>
+            <one-to-many class="com.elearing.entity.ExamQuesLink" />
+        </set>
+        <set name="examResults" table="examresult" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="examid" />
+            </key>
+            <one-to-many class="com.elearing.entity.ExamResult" />
+        </set>
+    </class>
+</hibernate-mapping>

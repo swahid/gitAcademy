@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="elearning"/>
+  <table-filter match-name="exam_result"/>
+  <table-filter match-name="sub_chapter"/>
+  <table-filter match-name="ques_level"/>
+  <table-filter match-name="chapter_type"/>
+  <table-filter match-name="mcq_ques"/>
+  <table-filter match-name="subject"/>
+  <table-filter match-name="sub_ebook"/>
+  <table-filter match-name="chapter_image"/>
+  <table-filter match-name="user_image"/>
+  <table-filter match-name="desc_ques_meta"/>
+  <table-filter match-name="exam_ques_link"/>
+  <table-filter match-name="exam"/>
+  <table-filter match-name="institution_info"/>
+  <table-filter match-name="user_role"/>
+  <table-filter match-name="desc_ques"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="class_info"/>
+</hibernate-reverse-engineering>

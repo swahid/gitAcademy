@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2015 4:08:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.elearing.entity.User" table="user" catalog="elearning" optimistic-lock="version">
+        <id name="userId" type="java.lang.Integer">
+            <column name="userid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="institutionInfo" class="com.elearing.entity.InstitutionInfo" fetch="select">
+            <column name="insid" />
+        </many-to-one>
+        <many-to-one name="userRole" class="com.elearing.entity.UserRole" fetch="select">
+            <column name="roleid" />
+        </many-to-one>
+        <property name="userName" type="string">
+            <column name="username" length="45" not-null="true" />
+        </property>
+        <property name="userPass" type="string">
+            <column name="userpass" length="45" />
+        </property>
+        <property name="userEmail" type="string">
+            <column name="useremail" length="45" not-null="true" />
+        </property>
+        <property name="userPhone" type="string">
+            <column name="userphone" length="20" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="19" />
+        </property>
+        <property name="firstName" type="string">
+            <column name="firstname" length="45" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="lastname" length="45" />
+        </property>
+        <set name="userImages" table="userimage" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="userid" />
+            </key>
+            <one-to-many class="com.elearing.entity.UserImage" />
+        </set>
+        <set name="institutionInfos" table="institutioninfo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="userid" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="com.elearing.entity.InstitutionInfo" />
+        </set>
+        <set name="examResults" table="examresult" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="userid" />
+            </key>
+            <one-to-many class="com.elearing.entity.ExamResult" />
+        </set>
+    </class>
+</hibernate-mapping>

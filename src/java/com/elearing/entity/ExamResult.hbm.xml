@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2015 4:08:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.elearing.entity.ExamResult" table="exam_result" catalog="elearning" optimistic-lock="version">
+        <id name="rsId" type="java.lang.Integer">
+            <column name="rsid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="exam" class="com.elearing.entity.Exam" fetch="select">
+            <column name="examid" />
+        </many-to-one>
+        <many-to-one name="user" class="com.elearing.entity.User" fetch="select">
+            <column name="userid" />
+        </many-to-one>
+        <property name="examDate" type="timestamp">
+            <column name="examdate" length="19" />
+        </property>
+        <property name="totalQues" type="java.lang.Integer">
+            <column name="totalques" />
+        </property>
+        <property name="marksObtained" type="java.lang.Integer">
+            <column name="marksobtained" />
+        </property>
+    </class>
+</hibernate-mapping>

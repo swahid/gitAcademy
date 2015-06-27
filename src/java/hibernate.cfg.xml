@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost/elearning?useUnicode=true&amp;characterEncoding=UTF8</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">123</property>
+    <property name="hibernate.c3p0.timeout">100</property>
+    <mapping resource="com/elearing/entity/ExamQuesLink.hbm.xml"/>
+    <mapping resource="com/elearing/entity/SubEbook.hbm.xml"/>
+    <mapping resource="com/elearing/entity/ExamResult.hbm.xml"/>
+    <mapping resource="com/elearing/entity/McqQues.hbm.xml"/>
+    <mapping resource="com/elearing/entity/DescQues.hbm.xml"/>
+    <mapping resource="com/elearing/entity/ChapterImage.hbm.xml"/>
+    <mapping resource="com/elearing/entity/UserRole.hbm.xml"/>
+    <mapping resource="com/elearing/entity/DescQuesMeta.hbm.xml"/>
+    <mapping resource="com/elearing/entity/User.hbm.xml"/>
+    <mapping resource="com/elearing/entity/QuesLevel.hbm.xml"/>
+    <mapping resource="com/elearing/entity/Subject.hbm.xml"/>
+    <mapping resource="com/elearing/entity/ClassInfo.hbm.xml"/>
+    <mapping resource="com/elearing/entity/SubChapter.hbm.xml"/>
+    <mapping resource="com/elearing/entity/InstitutionInfo.hbm.xml"/>
+    <mapping resource="com/elearing/entity/ChapterType.hbm.xml"/>
+    <mapping resource="com/elearing/entity/Exam.hbm.xml"/>
+    <mapping resource="com/elearing/entity/UserImage.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

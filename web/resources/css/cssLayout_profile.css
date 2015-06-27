@@ -1,0 +1,145 @@
+
+#container {
+    width: available;
+    height: available;
+    font-size: 14px;
+    background-color: white;
+    color: #333333;
+
+}
+
+#nav{
+    position: relative;
+    clear: both;
+
+
+}
+#top {
+    float: left;
+    position: relative;
+    background-color: white;
+    color: #181818;
+    width: 200px;
+    height: 50px;
+    margin-bottom: 10px;
+    background: url(../image/logo.png) no-repeat;
+
+
+}
+#header{
+    position: relative;
+    margin: 0px 250px 0px 200px; 
+    color: appworkspace;
+    height: 50px;
+    font-weight: bold;
+    alignment-adjust: alphabetic;
+    font-size: 20px;
+
+
+}
+
+
+
+#member {
+    float: right;
+    position: relative;
+    background-color: #ffffff;
+    width: 150px;
+    margin-right: 20px;
+}
+
+#body{
+    clear: both;
+    position: relative;
+
+
+}
+#bottom {
+    clear: both;
+    position: relative;
+
+    background-color: #333333;
+    color: whitesmoke;
+    font-weight: bold;
+    border-top: 1px solid #cccccc;
+    height: 50px;
+}
+
+#profileContent{
+    position: relative;
+    background-color: #ffffff;
+    padding: 5px;
+    color: #181818;
+
+}
+#profileMenu{
+    background: #3399ff;
+    height: 75px;
+    text-align: left;
+    margin-top: 10px;
+    color: whitesmoke;
+    font-size: 24px;
+    font-weight: bolder;
+
+}
+
+
+
+
+/*#left {
+    position: relative;
+    float: left;
+    background-color: #ffffff;
+    padding: 0px;
+    min-width: 300px;   
+    border: 1px solid #cccccc;
+    color: #181818;
+}
+
+
+#right {
+    float: right;
+    background-color: #ffffff;
+    padding: 5px;
+    width: 150px;
+    border: 1px solid #cccccc;
+    color: #181818;
+}
+
+#content {
+    position: relative;
+    background-color: #ffffff;
+    padding: 5px;
+   color: #181818;
+        height: 800px;
+}*/
+
+
+/*.left_content {
+
+    background-color: #ffffff;
+    padding: 5px;
+    margin-left: 170px;
+}*/
+
+
+/*.right_content {
+    background-color: #ffffff;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+    border: 1px solid #cccccc;
+}*/
+
+#top a:link, #top a:visited {
+    color: whitesmoke;
+    font-weight : bold;
+    text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+    color: #009966;
+    font-weight : bold;
+    text-decoration : none;
+}
+
+

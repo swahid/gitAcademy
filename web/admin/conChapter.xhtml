@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:composition template="./../templete/homeTemplate.xhtml">
+
+        <ui:define name="content">
+            <div class="col-md-3">
+
+
+
+
+            </div>
+
+            <div class="col-md-9">
+                <c:choose>
+                    <c:when test="#{subjectCRUD.chapetrName.equalsIgnoreCase('multi')}">
+
+                        <ui:repeat value="#{multiChoiceQuesCRUD.chaptertData}" var="chapter" varStatus="srl">
+                            <h:form>
+                                <h:commandButton value="#{chapter.label}" action="questionAdd" class="btn btn-primary btn-lg btn-block"> 
+                                    <f:setPropertyActionListener target="#{multiChoiceQuesCRUD.subChapter.schId}" value="#{chapter.value}"/>
+                                    <f:setPropertyActionListener target="#{chapterImageSlide.subChapter.schId}" value="#{chapter.value}"/>
+                                     <f:setPropertyActionListener target="#{multiChoiceQuesCRUD.subChapter.schId}" value="#{chapter.value}"/>
+                                </h:commandButton><br/><br/>
+                            </h:form>        
+                        </ui:repeat>
+
+
+                    </c:when>
+
+
+                    <c:otherwise>
+                        <h3>Class #{subChapterCRUD.classInfo.className}</h3>
+                         <h4>Subject #{subChapterCRUD.subject.subName}</h4>
+                        <h:form>
+                            <div class="form-inline">
+                                <h:outputLabel value="Add New Chapter "></h:outputLabel>
+                                <h:inputText value="#{subChapterCRUD.subChapter.schName}" class="form-control" /><br/>
+                                <h:outputLabel value="Subject Topics"/>
+                                <h:inputTextarea value="#{subChapterCRUD.subChapter.schTopics}" cols="90"/><br/>
+                                <h:outputLabel value="Subject Hints :"/>
+                                <h:inputTextarea value="#{subChapterCRUD.subChapter.schHints}" cols="90"/><br/>
+                            <h:commandButton value="Add" action="#{subChapterCRUD.chaptrAdd()}"></h:commandButton>
+                            </div>
+                        </h:form>
+                    
+                        <ui:repeat value="#{subChapterCRUD.allChapterList}" var="chap" varStatus="sl">                                              
+                            <h:form>                              
+                                    <h:outputLabel class="control-label col-sm-2">Question  No: #{sl.index+1}</h:outputLabel>
+                                    <h:outputLabel class="control-label col-sm-2">Chapter Name :</h:outputLabel>
+                                    <h:outputLabel class="form-control" value="#{chap.schName}"/>
+                                    <h:outputLabel class="control-label col-sm-2">Chapter Title</h:outputLabel>
+                                    #{chap.schTopics}"
+                                    <h:outputLabel class="control-label col-sm-2">Chapter Hints</h:outputLabel>
+                                    #{chap.schHints}"<br/>
+                                    <h:commandButton value="Detete" action="#{subChapterCRUD.chapterDelete()}" class="btn btn-primary btn-lg btn-block">
+                                        <f:setPropertyActionListener target="#{subChapterCRUD.subChapter.schId}" value="#{chap.schId}"/>
+                                    </h:commandButton>
+                                    
+                                    <h:commandButton value="Edit" action="#{subChapterCRUD.chapterToEdit()}" class="btn btn-primary btn-lg btn-block">
+                                        <f:setPropertyActionListener target="#{subChapterCRUD.subChapter.schId}" value="#{chap.schId}"></f:setPropertyActionListener>
+                                          <f:setPropertyActionListener target="#{classCRUD.updateInfo}" value="chapter"></f:setPropertyActionListener>                                       
+                                    </h:commandButton><br/>
+                            </h:form>
+                        </ui:repeat>
+
+                    </c:otherwise>>          
+                </c:choose>
+
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+

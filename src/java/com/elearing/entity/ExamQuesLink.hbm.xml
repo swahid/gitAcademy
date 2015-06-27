@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2015 4:08:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.elearing.entity.ExamQuesLink" table="exam_ques_link" catalog="elearning" optimistic-lock="version">
+        <id name="examLinkId" type="java.lang.Integer">
+            <column name="examlinkid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="chapterType" class="com.elearing.entity.ChapterType" fetch="select">
+            <column name="chtyid" />
+        </many-to-one>
+        <many-to-one name="exam" class="com.elearing.entity.Exam" fetch="select">
+            <column name="examid" />
+        </many-to-one>
+        <many-to-one name="quesLevel" class="com.elearing.entity.QuesLevel" fetch="select">
+            <column name="queslevelid" />
+        </many-to-one>
+        <property name="totalQuesNo" type="java.lang.Integer">
+            <column name="totalquesno" />
+        </property>
+    </class>
+</hibernate-mapping>

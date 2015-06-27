@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:composition template="./../templete/homeTemplate.xhtml">
+
+        <ui:define name="content">
+            <div class="col-md-3">
+
+                <h:form>
+                    <h:commandButton value="Class" action="admin" class="btn btn-primary btn-lg btn-block" >
+                        <f:setPropertyActionListener target="#{subjectCRUD.className}" value="class" />
+                    </h:commandButton>
+
+                    <h:commandButton value="Subject" action="#{subjectCRUD.redirectTo()}" class="btn btn-primary btn-lg btn-block" >
+                        <f:setPropertyActionListener target="#{subjectCRUD.className}" value="subject" />
+                        <f:setPropertyActionListener target="#{subjectCRUD.subName}" value="not" />
+                    </h:commandButton>
+                    <h:commandButton value="Chapter" action="#{subjectCRUD.redirectTo()}" class="btn btn-primary btn-lg btn-block" >
+                        <f:setPropertyActionListener target="#{subjectCRUD.className}" value="subject" />
+                        <f:setPropertyActionListener target="#{subjectCRUD.subName}" value="chapter" />
+                        <f:setPropertyActionListener target="#{subjectCRUD.chapetrName}" value="not" />
+                    </h:commandButton> 
+                    <h:commandButton value="Multipule" action="#{subjectCRUD.redirectTo()}" class="btn btn-primary btn-lg btn-block" >
+                        <f:setPropertyActionListener target="#{subjectCRUD.className}" value="subject" />
+                        <f:setPropertyActionListener target="#{subjectCRUD.subName}" value="chapter" />
+                        <f:setPropertyActionListener target="#{subjectCRUD.chapetrName}" value="multi" />
+
+                    </h:commandButton>
+                    <h:commandButton value="Descriptive" action="examOnSubject" class="btn btn-primary btn-lg btn-block" >
+                        <f:setPropertyActionListener target="" value="9" />
+                    </h:commandButton>
+                    <h:commandButton value="Slide" action="examOnSubject" class="btn btn-primary btn-lg btn-block" >
+                        <f:setPropertyActionListener target="" value="9" />
+                    </h:commandButton>
+
+
+
+                </h:form>
+
+
+            </div>
+
+            <div class="col-md-9">
+                <c:choose>
+
+                    <c:when test="#{subjectCRUD.className.equalsIgnoreCase('class')}">
+                        <h:form>
+
+                            <h:panelGrid columns="15" cellpadding="4">
+                                <h:outputLabel value="Class Name:" style="font-weight:bold" /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                <h:inputText value="#{classCRUD.classInfo.className}" /> &nbsp; &nbsp; &nbsp;
+                                <h:commandButton value="Submit"  action="#{classCRUD.saveClass()}" class="btn btn-primary btn-block"/> &nbsp; &nbsp; &nbsp;
+                                <h:outputLabel  value="#{classCRUD.msg}" />
+
+
+                            </h:panelGrid>
+                        </h:form>   
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <br/>  
+
+                        <!--                        <h:form  id="data">
+                                                    <center>
+                                                        <h:panelGrid columns="27" cellpadding="10">
+                                                            <h:outputLabel value="Sl. No"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <h:outputLabel value="Class Name"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <h:outputLabel value="Delete"/><br/><br/><br/>
+                                                        </h:panelGrid>
+                                                    </center>
+                                                    <ui:repeat  value="{classCRUD.allClass}" var="cl" varStatus="st">                                
+                        
+                                                        <center> <h:panelGrid columns="23" cellpadding="10">
+                                                                <h:outputLabel value="{st.index+1}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+                                                                <h:outputLabel value="{cl.className}"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        
+                                                                <h:commandButton value="Delete" action="{classCRUD.delete()}" class="btn btn-primary btn-default">
+                        
+                                                                    <f:setPropertyActionListener target="{classCRUD.classInfo.classId}" value="#{cl.classId}"/>
+                        
+                                                                </h:commandButton><br/><br/>
+                        
+                                                            </h:panelGrid>  
+                                                        </center>
+                        
+                                                    </ui:repeat> 
+                        
+                                                </h:form>-->
+
+                        
+                            <center>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>SL No.</th>
+                                            <th>Class Name</th>
+                                            <th>Remove Action</th>
+                                            <th>Edit Action</th>
+                                        </tr> 
+                                    </thead>
+                                    <tbody>
+                                        <ui:repeat  value="#{classCRUD.allClass}" var="cl" varStatus="st">
+
+                                            <tr>
+                                                <td>#{st.index+1}</td>
+                                                <td>#{cl.className}</td>
+                                                <td>
+                                                    <h:commandButton value="Delete" action="#{classCRUD.delete()}">
+                                                        <f:setPropertyActionListener target="#{classCRUD.classInfo.classId}" value="#{cl.classId}"/>
+                                                    </h:commandButton>
+                                                </td>
+                                                <td>
+                                                    <form>
+                                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#a" aria-expanded="false" aria-controls="collapseExample">
+                                                        Edit
+                                                    </button>
+                                                    <div class="collapse" id="a">
+                                                        <div class="well">
+                                                           #{cl.className}
+                                                        </div>
+                                                    </div>
+                                                        </form>
+
+                                                </td>
+
+                                            </tr>
+                                        </ui:repeat>
+                                    </tbody>
+
+                                </table>
+
+                            </center>
+
+
+                        
+
+
+
+
+                    </c:when>
+                    <c:when test="#{subjectCRUD.className.equalsIgnoreCase('subject')}">
+
+                        <h:form>
+                            <ui:repeat  value="#{subjectCRUD.classData}" var="sub" varStatus="st">                                
+                                <h:commandButton value="#{sub.label}" action="conSubject" class="btn btn-lg btn-block">
+                                    <f:setPropertyActionListener target="#{subChapterCRUD.classInfo.classId}" value="#{sub.value}"/>
+                                    <f:setPropertyActionListener target="#{subjectCRUD.classInfo.classId}" value="#{sub.value}"/>
+                                </h:commandButton><br/><br/>
+
+                            </ui:repeat>
+                        </h:form>   
+
+                        <br/>  
+
+                    </c:when>
+                    <c:otherwise >               
+                        <p>Yet no data is reserved........................</p> 
+                    </c:otherwise>
+                </c:choose>
+            </div>
+
+        </ui:define>
+    </ui:composition>
+</html>
+

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="./../templete/homeTemplate.xhtml">
+
+        <ui:define name="content">
+            <div class="row">
+
+                <div class="col-md-2">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <center> #{subChapterCRUD.subjectName}  </center>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <h1>Thanks for Taking Part in Exam</h1>
+                                    <p style="font-style: italic;">Best wishes For Your Future</p> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <center>
+                    <h2>Total Questions #{examController.listq.size()}</h2>
+                   <h2>Obtain Marks #{examController.correct}</h2>
+                   </center>
+                    <br/>
+                    
+                    <h2 style="color: red; font-style: oblique">Oh ! No .... Please memorize  Following Question</h2>
+                    <p style="color: red; font-style: oblique">Because you have wrong answer these question</p>
+                    <h:form>
+
+                        <ui:repeat value="#{examController.wrongCollection}" var="m" varStatus="ms">
+                            <h:outputText value="#{ms.index +1}.&nbsp;&nbsp;#{m.mcqTitle}" />
+                            <table class="table table-hover">
+                                <td class="success">#{m.op1}</td>
+                                <td class="success">#{m.op3}</td>
+                                <td class="success">#{m.op3}</td>
+                                <td class="success">#{m.op4}</td>     
+                            </table>
+                            <h:outputLabel value="Ans. #{m.ansOp}"/><br/><br/>
+                        </ui:repeat>  
+
+                    </h:form> 
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+

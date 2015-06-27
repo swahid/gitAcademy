@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:composition template="./../templete/homeTemplate.xhtml">
+
+        <ui:define name="content">
+            <div class="col-md-3">
+
+
+
+
+            </div>
+            <div class="col-md-9">
+                <c:choose>
+                    <c:when test="#{subjectCRUD.subName.equalsIgnoreCase('chapter')}">
+                        <ui:repeat  value="#{subChapterCRUD.subjectData}" var="sub" varStatus="st">
+                            <h:form>
+                                <h:commandButton value="#{sub.label}" action="conChapter" class="btn btn-primary btn-block">
+                                    <f:setPropertyActionListener target="#{subChapterCRUD.subject.subId}" value="#{sub.value}"/>
+                                    <f:setPropertyActionListener target="#{multiChoiceQuesCRUD.subject.subId}" value="#{sub.value}"/>
+                                </h:commandButton><br/><br/>
+                            </h:form> 
+                        </ui:repeat>
+                    </c:when>
+                    <c:otherwise>
+
+                        <h:form>
+
+
+                            <h:outputLabel value="Add New Subject"> </h:outputLabel>
+                            <h:inputText value="#{subjectCRUD.subject.subName}"/>
+                            
+                            <h:commandButton value="Add" action="#{subjectCRUD.insertSub()}"/>
+
+
+                        </h:form>
+
+                        <h:form  id="data">
+                            <center>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>SL No.</th>
+                                            <th>Subject Name</th>
+                                            <th>Remove Action</th>
+                                            <th>Edit Action</th>
+                                        </tr> 
+                                    </thead>
+                                    <tbody>
+                                        <ui:repeat  value="#{subChapterCRUD.subjectData}" var="sub" varStatus="st">
+
+                                            <tr>
+                                                <td >#{st.index+1}</td>
+                                                <td >#{sub.label}</td>
+                                                <td>
+                                                    <h:commandButton value="Delete" action="#{subjectCRUD.deleteSub()}" class="btn btn-primary btn-default">
+
+                                                        <f:setPropertyActionListener target="#{subjectCRUD.subject.subId}" value="#{sub.value}"/>
+                                                        <f:setPropertyActionListener target="#{chapterTypeCRUD.subject.subId}" value="#{sub.value}"/>
+                                                    </h:commandButton>
+                                                </td>
+                                                <td>
+                                                    <h:commandButton value="Edit" action="#{subjectCRUD.subjectByID()}" >
+                                                        <f:setPropertyActionListener target="#{subjectCRUD.subject.subId}" value="#{sub.value}"></f:setPropertyActionListener>
+                                                        <f:setPropertyActionListener target="#{classCRUD.updateInfo}" value="subject"></f:setPropertyActionListener>
+                                                    </h:commandButton>
+
+
+                                                </td>
+
+                                            </tr>
+                                        </ui:repeat>
+                                    </tbody>
+
+                                </table>
+
+                            </center>
+
+
+                        </h:form>
+
+
+
+
+
+
+
+                    </c:otherwise>
+                </c:choose>
+
+
+
+
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+

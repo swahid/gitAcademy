@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2015 4:08:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.elearing.entity.Subject" table="subject" catalog="elearning" optimistic-lock="version">
+        <id name="subId" type="java.lang.Integer">
+            <column name="subid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="classInfo" class="com.elearing.entity.ClassInfo" fetch="select">
+            <column name="classid" />
+        </many-to-one>
+        <property name="subName" type="string">
+            <column name="subname" length="45" />
+        </property>
+        <property name="subDesc" type="string">
+            <column name="subdesc" length="700" />
+        </property>
+        <property name="subCode" type="string">
+            <column name="subcode" length="10" />
+        </property>
+        <set name="subChapters" table="subchapter" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="subid" />
+            </key>
+            <one-to-many class="com.elearing.entity.SubChapter" />
+        </set>
+        <set name="subEbooks" table="subebook" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="subid" />
+            </key>
+            <one-to-many class="com.elearing.entity.SubEbook" />
+        </set>
+        <set name="chapterTypes" table="chaptertype" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="subid" />
+            </key>
+            <one-to-many class="com.elearing.entity.ChapterType" />
+        </set>
+    </class>
+</hibernate-mapping>

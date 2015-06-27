@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2015 4:08:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.elearing.entity.InstitutionInfo" table="institution_info" catalog="elearning" optimistic-lock="version">
+        <id name="insId" type="java.lang.Integer">
+            <column name="insid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="com.elearing.entity.User" fetch="select">
+            <column name="userid" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="insName" type="string">
+            <column name="insname" length="100" />
+        </property>
+        <property name="insType" type="string">
+            <column name="instype" length="45" />
+        </property>
+        <property name="insAddress" type="string">
+            <column name="insaddress" length="200" />
+        </property>
+        <property name="insDistrict" type="string">
+            <column name="insdistrict" length="45" />
+        </property>
+        <set name="users" table="user" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="insid" />
+            </key>
+            <one-to-many class="com.elearing.entity.User" />
+        </set>
+    </class>
+</hibernate-mapping>

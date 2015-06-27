@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 27, 2015 4:08:39 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.elearing.entity.McqQues" table="mcq_ques" catalog="elearning" optimistic-lock="version">
+        <id name="mcqId" type="java.lang.Integer">
+            <column name="mcqid" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="chapterType" class="com.elearing.entity.ChapterType" fetch="select">
+            <column name="chtyid" />
+        </many-to-one>
+        <many-to-one name="quesLevel" class="com.elearing.entity.QuesLevel" fetch="select">
+            <column name="queslevelid" />
+        </many-to-one>
+        <many-to-one name="subChapter" class="com.elearing.entity.SubChapter" fetch="select">
+            <column name="schid" />
+        </many-to-one>
+        <property name="user" type="string">
+            <column name="user" length="45" />
+        </property>
+        <property name="mcqTitle" type="string">
+            <column name="mcqtitle" length="500" />
+        </property>
+        <property name="op1" type="string">
+            <column name="op1" length="45" />
+        </property>
+        <property name="op2" type="string">
+            <column name="op2" length="45" />
+        </property>
+        <property name="op3" type="string">
+            <column name="op3" length="45" />
+        </property>
+        <property name="op4" type="string">
+            <column name="op4" length="45" />
+        </property>
+        <property name="ansOp" type="string">
+            <column name="ansop" length="45" />
+        </property>
+        <property name="mcqType" type="java.lang.Integer">
+            <column name="mcqtype" />
+        </property>
+        <property name="mcqPubTime" type="timestamp">
+            <column name="mcqpubtime" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>
